@@ -1,0 +1,7 @@
+.accueil {
+    background-image: url('/assets/img/background2zero.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+  }
