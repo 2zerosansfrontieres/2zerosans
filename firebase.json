@@ -1,0 +1,22 @@
+{
+  "hosting": [
+    {
+      "target": "deuxzerosansfrontiere",
+      "public": "dist\\deuxzerosansfrontiere\\dist\\deuxzerosansfrontiere\\browser",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "function": "server"
+        }
+      ]
+    }
+  ],
+  "functions": {
+    "source": "dist/deuxzerosansfrontiere"
+  }
+}

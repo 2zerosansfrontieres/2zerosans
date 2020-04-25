@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "deuxzerosansfrontire": {
+      "hosting": {
+        "deuxzerosansfrontiere": [
+          "deuxzerosansfrontire"
+        ]
+      }
+    }
+  }
+}
