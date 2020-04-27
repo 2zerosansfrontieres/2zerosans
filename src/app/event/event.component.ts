@@ -12,6 +12,8 @@ export class EventComponent implements OnInit {
   @Input() galleryImages: NgxGalleryImage[];
   @Input() height: string;
   @Input() width: string;
+  @Input() titre: string;
+  @Input() description: string;
 
   constructor() { }
 

@@ -1,5 +1,5 @@
  export class Event {
-     id: number;
+     id: string;
      youtube:string;
      galeries:Galery[];
      description:string;
@@ -7,6 +7,7 @@
  }
 
  export class Galery {
+    id: string;
     small: string;
     medium:string;
     big:string;

@@ -6,6 +6,7 @@
 </div>
 <div fxLayout="column" fxLayoutGap="40px">
     <event *ngFor="let event of listEvents; index as i" [galleryImages]="event.galeries" [link]="event.youtube"
-    [height]="height" [width]="width"></event>
+    [height]="height" [width]="width"
+    [titre]="event.titre" [description]="event.description"></event>
 </div>
 </div>

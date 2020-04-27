@@ -71,25 +71,17 @@ export class ActualiteComponent implements OnInit {
   }
 
   createEvent(){
-    this.evenement.id = this.listEvents.length + 1;
     this.listEvents = this.listEvents.reverse();
     this.listEvents.push(this.evenement);
     this.listEvents = this.listEvents.reverse();
-    let createEvent = new CreateEvent(this.evenement,this.listEvents);
-    this.eventsService.createAndDeleteEvent(createEvent).subscribe(events => {
-      this.evenement = null;
-      this.listEvents = events;
-    });
+    this.eventsService.createEvent(this.evenement);
   }
 
   deleteEvent(){
     let index = this.listEvents.findIndex(ev => this.evenement.id === ev.id);
     this.listEvents = this.listEvents.slice(index,1);
-    let createEvent = new CreateEvent(this.evenement,this.listEvents);
-    this.eventsService.createAndDeleteEvent(createEvent).subscribe(events => {
-      this.evenement = null;
-      this.listEvents = events;
-    });
+    this.eventsService.deleteEvent(this.evenement.id.toString());
+    
   }
 
 }

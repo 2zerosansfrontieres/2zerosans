@@ -10,7 +10,7 @@ import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 import * as fs from 'fs';
-import * as firestore from '@firebase/firestore';
+import * as firebase from 'firebase';
 const server = express();
 server.use(express.json());
 const port = process.env.PORT || 4000;
@@ -19,7 +19,9 @@ const gcconfig = {
   keyFilename: "deuxzerosansfrontire-firebase-adminsdk-n0czt-9962f64ee4.json"
 };
 
-const gcs = require('@firebase/firestore')(gcconfig);
+firebase.initializeApp(gcconfig);
+
+
 
 
 // The Express app is exported so that it can be used by serverless Functions.
@@ -38,7 +40,21 @@ export function app() {
 
   // Example Express Rest API endpoints
   server.get('/api/events', (req, res) => { 
-    const events = fs.readFileSync('./assets/json/events.json');
+    if (process.argv.length <= 2) {
+      console.log("Usage: " + __filename + " path/to/directory");
+      process.exit(-1);
+  }
+   
+  var path = process.argv[2];
+   
+  fs.readdir(path, function(err, items) {
+      console.log(items);
+   
+      for (var i=0; i<items.length; i++) {
+          console.log(items[i]);
+      }
+  });
+    const events = fs.readFileSync('assets/json/events.json');
     const result = JSON.parse(events.toString());
     res.send(result);
   });
@@ -71,7 +87,8 @@ function run() {
   // Start up the Node server
   const server = app();
   console.log('server', server);
-  console.log('process.env', process.env.npm_package_name);
+  console.log('process.env', process.env);
+  
   server.listen(port, () => {console.log('Node Express on http://localhost', port)
   });
 }

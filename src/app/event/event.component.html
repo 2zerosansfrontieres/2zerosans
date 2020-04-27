@@ -4,8 +4,11 @@
             <youtube  [link]="link" [height]="height" [width]="width" *ngIf="link"></youtube>
             <div fxFlex="5">&nbsp;</div>
             <div fxFlex="30" fxLayout="column"  fxLayoutAlign="space-around center">
-               <div fxFlex="10"> <b>Evenement</b> </div>
-               <div fxFlex="10"> <b>Description</b> </div>
+               <div fxFlex="10"> <b>Evenement</b>
+             </div>
+               <div fxFlex="10"> <b>Description</b> 
+                {{description}}
+            </div>
                <div> Mon premier evenement </div>
             </div>
             <div fxFlex="20">&nbsp;</div>

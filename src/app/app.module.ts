@@ -32,7 +32,22 @@ import { ModalEventComponent } from './modal-event/modal-event.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { MembreComponent } from './membre/membre.component';
 
+// 1. Import the libs you need
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
+const firebaseConfig = {
+  apiKey: "AIzaSyB2LdNfhv0IF9khPSHE3I9si74nk4YutCo",
+  authDomain: "deuxzerosansfrontire.firebaseapp.com",
+  databaseURL: "https://deuxzerosansfrontire.firebaseio.com",
+  projectId: "deuxzerosansfrontire",
+  storageBucket: "deuxzerosansfrontire.appspot.com",
+  messagingSenderId: "850027966929",
+  appId: "1:850027966929:web:9805cc3e30d550e119b0f0",
+  measurementId: "G-V1VZNVYGCY"
+};
 
 
 @NgModule({
@@ -69,7 +84,12 @@ import { MembreComponent } from './membre/membre.component';
     HttpClientModule,
     MatDialogModule,
     MatInputModule,
-    MatRadioModule
+    MatRadioModule,
+     // 3. Initialize
+     AngularFireModule.initializeApp(firebaseConfig),
+     AngularFirestoreModule, // firestore
+     AngularFireAuthModule, // auth
+     AngularFireStorageModule // storage
   ],
   providers: [CookieService,CookiesService],
   entryComponents: [
